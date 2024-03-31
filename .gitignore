@@ -1,5 +1,5 @@
 # Saves folder
-saves/
+saves/party_saves/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

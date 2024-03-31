@@ -1,6 +1,6 @@
 # Power4
 
-A project of power 4 made for \"Fondamentaux Python\" course at EPSI Lille
+A project of power 4 made for "Fondamentaux Python" course at EPSI Lille
 
 Created in march 2024
 

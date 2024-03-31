@@ -49,7 +49,7 @@ class Party:
                 return self.end_game_menu()
             
             print_choise_prompt()
-            match input():
+            match input().lower():
                 # Column selection
                 case num if num.isdigit():
                     num = int(num)-1
@@ -105,7 +105,7 @@ class Party:
         
         while True:
             print_choise_prompt()
-            match input():
+            match input().lower():
                 case "n":
                     return self.restart_party()
                 case "h":

@@ -50,7 +50,7 @@ class Game:
             
         show_menu()
         while True:
-            print_choise_prompt()
+            prompt.print_choise_prompt()
             match input().lower():
                 # New party
                 case "n":
@@ -120,7 +120,7 @@ class Game:
         print("\n".join(files[:10]))
         
         # Back to main menu prompt
-        print("\n" + Fore.BLUE + "⇒ Press <ENTER> to go back in main menu" + Style.RESET_ALL, end=" ")
+        prompt.back_to_main_menu()
         input()
 
 
@@ -146,7 +146,7 @@ class Game:
     def quit(self) -> None:
         """Display goodbye message and exit the game
         """
-        print_goodbye(on_new_line=False)
+        prompt.goodbye(on_new_line=False)
         quit()
 
 

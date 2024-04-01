@@ -7,4 +7,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt: # Custom existing message
-        power4.utils.print_goodbye()
+        power4.utils.prompt.goodbye()

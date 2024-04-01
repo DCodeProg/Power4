@@ -48,7 +48,7 @@ class Party:
                 print("\n", Back.MAGENTA + "🟰 Grid full! Equality" + Style.RESET_ALL, sep="")
                 return self.end_game_menu()
             
-            print_choise_prompt()
+            prompt.your_choice()
             match input().lower():
                 # Column selection
                 case num if num.isdigit():
@@ -104,7 +104,7 @@ class Party:
         print("(q): Go back to the main menu")
         
         while True:
-            print_choise_prompt()
+            prompt.your_choice()
             match input().lower():
                 case "n":
                     return self.restart_party()

@@ -14,7 +14,7 @@ class Board:
         
         self.empty_grid()  
        
-       
+    
     "TESTS"
     def is_full(self) -> bool:
         """Check if the board is full

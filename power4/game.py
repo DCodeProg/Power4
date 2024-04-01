@@ -43,8 +43,8 @@ class Game:
             os.system('cls') 
             
             # Game title, menu title and menu options
-            self.print_game_title()
-            print(Fore.YELLOW + "MAIN MENU : " + Style.RESET_ALL)
+            prompt.game_title()
+            prompt.label("MAIN MENU:")
             print(menu)
             
             
@@ -73,7 +73,7 @@ class Game:
                     
                 # Invalid choice
                 case _:
-                    print(Back.LIGHTRED_EX + "⚠️ Invalid choice!" + Style.RESET_ALL)
+                    prompt.error("⚠️ Invalid choice!")
 
     def credits_menu(self):
         """Displays information about the game developers and licence
@@ -82,26 +82,26 @@ class Game:
         os.system('cls')
         
         # Game title
-        self.print_game_title()
+        prompt.game_title()
         
         # Project description
-        print(Fore.YELLOW + "DESCRIPTION" + Style.RESET_ALL)
+        prompt.label("DESCRIPTION")
         print("A project of power 4 made for \"Fondamentaux Python\" course at EPSI Lille." + Style.DIM + "\nCreated in march 2024" + Style.RESET_ALL)
         
         # Author infos
-        print("\n" + Fore.YELLOW + "AUTHOR INFOS" + Style.RESET_ALL)
+        prompt.label("\nAUTHOR INFOS")
         print("Name: Danaël LEGRAND")
         print("Email: danael.legrand@ecoles-epsi.net")
         print("Github: https://github.com/DCodeProg")
         
         # Licence infos
-        print("\n" + Fore.YELLOW + "LICENSE" + Style.RESET_ALL)
+        prompt.label("\nLICENCE")
         with open(os.path.join(ROOT_DIR, "LICENSE"), "r") as file:
             print(file.read())
         
         
         # Back to main menu prompt
-        print("\n" + Fore.BLUE + "⇒ Press <ENTER> to go back in main menu" + Style.RESET_ALL, end=" ")
+        prompt.back_to_main_menu()
         input()
     
     def history_menu(self):
@@ -111,10 +111,10 @@ class Game:
         os.system('cls')
         
         # Game title
-        self.print_game_title()
+        prompt.game_title()
         
         # List of saved parties
-        print(Fore.YELLOW + "PARTY HISTORY: " + Style.RESET_ALL)
+        prompt.label("PARTY HISTORY")
         path = os.path.join(ROOT_DIR, r'saves\party_saves')
         files = [f.removesuffix('.txt') for f in os.listdir(path)]
         print("\n".join(files[:10]))
@@ -129,18 +129,7 @@ class Game:
         """Star a new power4 party
         """
         self.party = Party()
-    
-        
-    "DISPLAY"
-    def print_game_title(self) -> None:
-        """Show game title in the console
-        """
-        print(Fore.CYAN + """ _____                   ___ 
-|  _  |___ _ _ _ ___ ___| | |
-|   __| . | | | | -_|  _|_  |
-|__|  |___|_____|___|_|   |_|
-""", Style.RESET_ALL)
-    
+       
     
     "OTHER"
     def quit(self) -> None:

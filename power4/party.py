@@ -56,12 +56,12 @@ class Party:
                     
                     # Check if the column is valid
                     if not num in range(self.board.column_count):
-                        print(Back.LIGHTRED_EX + "⚠️ Invalid column!" + Style.RESET_ALL)
+                        prompt.error("⚠️ Invalid column!")
                         continue
                     
                     # Check if the column is already full
                     if not self.board.is_move_possible(num):
-                        print(Back.LIGHTRED_EX + "⚠️ Column already full!" + Style.RESET_ALL)
+                        prompt.error("⚠️ Column already full!")
                         continue
                     
                     # Drop the pawn in the column and save the turn
@@ -92,13 +92,12 @@ class Party:
                     self.show_turn(self.turn, player)
                     continue
                 case _:
-                    print(Back.LIGHTRED_EX + "⚠️ Invalid option!" + Style.RESET_ALL)
+                    prompt.error("⚠️ Invalid option!")
                     continue
     
     
     "MENUS"
     def end_game_menu(self):
-        
         print("(n): Start a new party")
         print("(h): View turn history")
         print("(q): Go back to the main menu")
@@ -113,8 +112,8 @@ class Party:
                 case "q":
                     break
                 case _:
-                    print(Back.LIGHTRED_EX + "⚠️ Invalid choice!" + Style.RESET_ALL)
-                    
+                    prompt.error("⚠️ Invalid option!")                    
+    
     
     "ACTIONS"
     def restart_party(self):
@@ -192,7 +191,7 @@ def test_party():
     try:
         p = Party()
     except KeyboardInterrupt:
-        print("\n", Back.RED + "❌ Quitting..." + Style.RESET_ALL, sep="")
+        prompt.goodbye()
         
 if __name__ == "__main__":
     test_party()

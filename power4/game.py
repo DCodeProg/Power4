@@ -50,7 +50,7 @@ class Game:
             
         show_menu()
         while True:
-            prompt.print_choise_prompt()
+            prompt.your_choice()
             match input().lower():
                 # New party
                 case "n":
